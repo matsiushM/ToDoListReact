@@ -1,7 +1,6 @@
 import style from "./task.module.css"
 import React, {useState} from "react";
 import {ITask} from "../../model/model";
-import {text} from "stream/consumers";
 
 
 type TaskProps = {
@@ -28,8 +27,8 @@ export function Task({task, removeTask}: TaskProps) {
             <button
                 className={style.taskButton}
                 onClick={() => {
-                removeTask(task.id)
-            }}>delete
+                    removeTask(task.id)
+                }}>delete
             </button>
         </div>
     );
