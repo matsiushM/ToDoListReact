@@ -1,0 +1,29 @@
+.inputBlock{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px 5px 15px;
+}
+
+.inputBlock input{
+    width: 70%;
+    font-size: 18px;
+    border-style: none;
+    background:transparent;
+    outline: none;
+    border-bottom: 1px solid black;
+}
+
+.inputBlock button{
+    width: 20%;
+    background: beige;
+    border-radius: 5px;
+    border-style: none;
+    margin: 5px;
+    font-size: 18px;
+}
+
+.inputBlock button:hover{
+    box-shadow: 4px 4px 15px gray;
+}

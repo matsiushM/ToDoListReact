@@ -1,0 +1,65 @@
+.task {
+    /*box-sizing: border-box;*/
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: whitesmoke;
+    box-shadow: 0px 0px 5px darkgray;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    position: relative;
+
+}
+
+.taskChk {
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: whitesmoke;
+    box-shadow: 0px 0px 5px darkgray;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    position: relative;
+    opacity: 0.5
+}
+
+.taskChk:before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    width: 83%;
+    height: 1px;
+    background-color: black;
+    transform: translateY(-50%);
+}
+
+.text {
+    /*font-weight: bold;*/
+    font-size: 18px;
+    margin: 10px;
+}
+
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+    margin: 5px 5px 5px 20px;
+}
+
+.taskButton {
+    text-align: center;
+    height: 60%;
+    width: 15%;
+    margin: 5px 20px 5px 5px;
+    background: aliceblue;
+    border: 1px solid darkgray;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.taskButton:active{
+    box-shadow: 4px 4px 15px gray;
+}
