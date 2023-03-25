@@ -10,12 +10,12 @@ type TaskProps = {
 
 export function Task({task, removeTask}: TaskProps) {
 
-    const [checked, setChecked] = useState(task.done);
+    const [checked, setChecked] = useState(false);
 
-    const chkBgClassName = checked ? style.taskChk : style.task;
+    const chkBgClassName = checked ? style.textChk : style.text;
 
     return (
-        <div className={chkBgClassName}>
+        <div className={style.task}>
             <input type={"checkbox"}
                    className={style.checkbox}
                    checked={checked}
@@ -23,7 +23,7 @@ export function Task({task, removeTask}: TaskProps) {
                        setChecked(rev => !rev);
                    }
                    }/>
-            <p className={style.text}>{task.description}</p>
+            <p className={chkBgClassName}>{task.description}</p>
             <button
                 className={style.taskButton}
                 onClick={() => {
