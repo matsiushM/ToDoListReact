@@ -1,11 +1,11 @@
 import style from "./TaskImput.module.css"
 import React, {useState} from "react";
 
-type TaskImputProps = {
+interface TaskImputProps {
     addTask: Function;
 }
 
-export function TaskInput({addTask}: TaskImputProps) {
+    const TaskInput = ({addTask}: TaskImputProps) => {
 
     const [text, setText] = useState('');
 
@@ -18,8 +18,7 @@ export function TaskInput({addTask}: TaskImputProps) {
                            addTask(text);
                            setText("");
                        }
-                   }}
-            ></input>
+                   }}/>
 
             <button onClick={() => {
                 addTask(text);
@@ -30,3 +29,5 @@ export function TaskInput({addTask}: TaskImputProps) {
         </div>
     );
 }
+
+export default TaskInput;

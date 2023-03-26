@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import style from "./App.module.css";
-import {Task} from "../task/task";
-import {TaskInput} from "../taskIput/TaskImput"
-import {ITask} from "../../model/model";
+import Task from "../task/task";
+import TaskInput from "../taskIput/TaskImput"
+import {ITask} from "../../model/types";
 import {v4 as uuidv4} from "uuid";
 
 
-function App() {
+const App = () => {
 
     const [tasks, setTask] = useState<ITask[]>([]);
 
