@@ -1,6 +1,6 @@
 import style from "./task.module.css"
 import React, {useState} from "react";
-import {ITask} from "../../model/types";
+import {ITask} from "../../types/types";
 
 
 interface TaskProps  {
@@ -13,6 +13,10 @@ interface TaskProps  {
     const [checked, setChecked] = useState(false);
 
     const chkBgClassName = checked ? style.textChk : style.text;
+
+    const handlRemoveTask = (id: string) => {
+        removeTask(id);
+    };
 
     return (
         <div className={style.task}>
@@ -27,7 +31,7 @@ interface TaskProps  {
             <button
                 className={style.taskButton}
                 onClick={() => {
-                    removeTask(task.id)
+                    handlRemoveTask(task.id)
                 }}>delete</button>
         </div>
     );

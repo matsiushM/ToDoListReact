@@ -5,29 +5,37 @@ interface TaskImputProps {
     addTask: Function;
 }
 
-    const TaskInput = ({addTask}: TaskImputProps) => {
+const TaskInput = ({addTask}: TaskImputProps) => {
 
     const [text, setText] = useState('');
+
+    const handleKeyDown = (text: string) => {
+        if (text === "Enter") {
+            addTask(text);
+            setText("");
+        }
+    }
+
+    const handOnClick = (text: string) => {
+        addTask(text);
+        setText("");
+    }
 
     return (
         <div className={style.inputBlock}>
             <input value={text} onChange={e => setText(e.target.value)} type="text"
                    placeholder="Write your task..."
                    onKeyDown={(e) => {
-                       if(e.key === "Enter") {
-                           addTask(text);
-                           setText("");
-                       }
+                       handleKeyDown(e.key);
                    }}/>
 
             <button onClick={() => {
-                addTask(text);
-                setText("");
+                handOnClick(text);
             }}
             > create
             </button>
         </div>
     );
-}
+};
 
 export default TaskInput;

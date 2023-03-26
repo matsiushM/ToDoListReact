@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import style from "./App.module.css";
 import Task from "../task/task";
 import TaskInput from "../taskIput/TaskImput"
-import {ITask} from "../../model/types";
+import {ITask} from "../../types/types";
 import {v4 as uuidv4} from "uuid";
 
 
@@ -11,7 +11,7 @@ const App = () => {
     const [tasks, setTask] = useState<ITask[]>([]);
 
     const addTask = (text: string) => {
-        if (text !== "") {
+        if (text === "") {return}
             if (!tasks.find(task => task.description === text)) {
                 const newTask = {
                     id: uuidv4(),
@@ -19,10 +19,7 @@ const App = () => {
                     done: false,
                 };
                 setTask([...tasks, newTask]);
-            }
-
-        }
-        ;
+            };
     };
 
     const removeTask = (id: string) => {
@@ -39,6 +36,6 @@ const App = () => {
             </div>
         </div>
     );
-}
+};
 
 export default App;
