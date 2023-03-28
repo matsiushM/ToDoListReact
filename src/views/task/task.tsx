@@ -3,19 +3,25 @@ import React, {useState} from "react";
 import {ITask} from "../../types/types";
 
 
-interface TaskProps  {
+interface TaskProps {
     task: ITask;
     removeTask: Function;
+    taskDone: Function;
 }
 
-    const Task = ({task, removeTask}: TaskProps) => {
+const Task = ({task, removeTask, taskDone}: TaskProps) => {
 
-    const [checked, setChecked] = useState(false);
+    const [checked, setChecked] = useState(task.done);
 
-    const chkBgClassName = checked ? style.textChk : style.text;
+    const chkBgClassName = task.done ? style.textChk : style.text;
 
-    const handlRemoveTask = (id: string) => {
-        removeTask(id);
+    const handlRemoveTask = () => {
+        removeTask(task.id);
+    };
+
+    const hendlCheckedTask = () => {
+        taskDone(task.id);
+        setChecked(task.done);
     };
 
     return (
@@ -24,15 +30,15 @@ interface TaskProps  {
                    className={style.checkbox}
                    checked={checked}
                    onClick={() => {
-                       setChecked(rev => !rev);
-                   }
-                   }/>
+                       hendlCheckedTask()
+                   }}/>
             <p className={chkBgClassName}>{task.description}</p>
             <button
                 className={style.taskButton}
                 onClick={() => {
-                    handlRemoveTask(task.id)
-                }}>delete</button>
+                    handlRemoveTask()
+                }}>delete
+            </button>
         </div>
     );
 };
